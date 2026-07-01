@@ -1,10 +1,11 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
-import { LoginPage } from '../pages/LoginPage/LoginPage';
-import { ServicesPage } from '../pages/ServicesPage/ServicesPage';
-import { ServiceDetailsPage } from '../pages/ServiceDetailsPage/ServiceDetailsPage';
-import { RunPage } from '../pages/RunPage/RunPage';
+import { AppLayout } from '../components/layout/AppLayout/AppLayout';
 import { ComparePage } from '../pages/ComparePage/ComparePage';
+import { LoginPage } from '../pages/LoginPage/LoginPage';
+import { RunPage } from '../pages/RunPage/RunPage';
+import { ServiceDetailsPage } from '../pages/ServiceDetailsPage/ServiceDetailsPage';
+import { ServicesPage } from '../pages/ServicesPage/ServicesPage';
 
 const router = createBrowserRouter([
   {
@@ -16,20 +17,25 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: '/services',
-    element: <ServicesPage />,
-  },
-  {
-    path: '/services/:serviceId',
-    element: <ServiceDetailsPage />,
-  },
-  {
-    path: '/run/:runId',
-    element: <RunPage />,
-  },
-  {
-    path: '/compare',
-    element: <ComparePage />,
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/services',
+        element: <ServicesPage />,
+      },
+      {
+        path: '/services/:serviceId',
+        element: <ServiceDetailsPage />,
+      },
+      {
+        path: '/run/:runId',
+        element: <RunPage />,
+      },
+      {
+        path: '/compare',
+        element: <ComparePage />,
+      },
+    ],
   },
 ]);
 
