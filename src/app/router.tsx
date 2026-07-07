@@ -6,6 +6,10 @@ import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { RunPage } from '../pages/RunPage/RunPage';
 import { ServiceDetailsPage } from '../pages/ServiceDetailsPage/ServiceDetailsPage';
 import { ServicesPage } from '../pages/ServicesPage/ServicesPage';
+import { AboutPage } from '../pages/AboutPage/AboutPage';
+import { ProfilePage } from '../pages/ProfilePage/ProfilePage';
+
+
 
 const router = createBrowserRouter([
   {
@@ -34,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: '/compare',
         element: <ComparePage />,
+      },
+      {
+        path: '/about',
+        element: <AboutPage />,
+      },
+      {
+        path: '/profile',
+        element: <ProfilePage />,
       },
     ],
   },
