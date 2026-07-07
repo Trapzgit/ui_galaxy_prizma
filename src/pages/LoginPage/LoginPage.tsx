@@ -91,7 +91,7 @@ export function LoginPage() {
           </div>
 
           <label className="login-field">
-            <span className="login-field__label">Login</span>
+            <span className="login-field__label">Логин</span>
             <span className="login-field__control">
               <span className="login-field__icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -183,7 +183,7 @@ export function LoginPage() {
               <span>Запомнить меня</span>
             </label>
 
-            <a href="#forgot-password">Забыли пароль?</a>
+            {/*<a href="#forgot-password">Забыли пароль?</a>*/}
           </div>
 
           {error && <div className="login-error">{error}</div>}
