@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import './AppLayout.css';
 
@@ -12,6 +12,13 @@ const services = [
 ];
 
 export function AppLayout() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isServicesPage =
+    location.pathname === '/services' ||
+    location.pathname.startsWith('/services/');
+
   return (
     <div className="app-shell">
       <aside className="app-sidebar">
@@ -36,19 +43,24 @@ export function AppLayout() {
           </NavLink>
 
           <nav className="app-sidebar__services" aria-label="Сервисы">
-            {services.map((service, index) => (
-              <button
-                key={service}
-                className={
-                  index === 0
-                    ? 'app-sidebar__service app-sidebar__service--active'
-                    : 'app-sidebar__service'
-                }
-                type="button"
-              >
-                {service}
-              </button>
-            ))}
+            {services.map((service, index) => {
+              const isActiveService = isServicesPage && index === 0;
+
+              return (
+                <button
+                  key={service}
+                  className={
+                    isActiveService
+                      ? 'app-sidebar__service app-sidebar__service--active'
+                      : 'app-sidebar__service'
+                  }
+                  type="button"
+                  onClick={() => navigate('/services')}
+                >
+                  {service}
+                </button>
+              );
+            })}
           </nav>
         </div>
 
