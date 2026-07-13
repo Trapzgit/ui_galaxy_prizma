@@ -14,25 +14,46 @@
 }
 
 .template-breadcrumbs {
+  height: 36px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 5px;
   margin-bottom: 16px;
   color: #243144;
-  font-size: 14px;
-  font-weight: 400;
 }
 
-.template-breadcrumbs button {
-  width: 18px;
-  height: 18px;
+.template-breadcrumbs__back,
+.template-breadcrumbs__separator {
+  width: 20px;
+  height: 20px;
   padding: 0;
   border: 0;
   background: transparent;
   color: #243144;
-  font-size: 28px;
-  line-height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.template-breadcrumbs__back {
   cursor: pointer;
+}
+
+.template-breadcrumbs__back:hover {
+  color: #00a832;
+}
+
+.template-breadcrumbs__separator {
+  pointer-events: none;
+}
+
+.template-breadcrumbs__text {
+  color: #243144;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
 }
 
 .template-page__header {
@@ -250,11 +271,27 @@
   padding: 0 8px;
   border: 1px solid #b6b6b6;
   border-radius: 4px;
-  background: #ffffff;
+  background-color: #ffffff;
   color: #243144;
   font-size: 15px;
   font-weight: 300;
   outline: none;
+}
+
+.template-select {
+  appearance: none;
+  padding-right: 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%238f8f8f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 20px 20px;
+}
+
+.template-select:focus,
+.template-comment-input:focus,
+.template-group-comment input:focus {
+  border-color: #00a832;
+  box-shadow: 0 0 0 3px rgba(0, 168, 50, 0.12);
 }
 
 .template-select:focus,
@@ -316,15 +353,30 @@
 }
 
 .template-delete {
+  min-height: 40px;
+  padding: 8px 6px;
   border: 0;
+  border-radius: 6px;
   background: transparent;
-  color: #ff0000;
+  color: #7ea8e6;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 17px;
   font-weight: 700;
   cursor: pointer;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.template-delete:hover {
+  background: transparent;
+  color: #ff0000;
+}
+
+.template-delete svg {
+  color: currentColor;
 }
 
 .template-actions__right {
