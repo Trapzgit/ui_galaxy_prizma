@@ -70,9 +70,14 @@
 
 .template-form {
   display: grid;
-  grid-template-columns: 346px 1fr;
+  grid-template-columns: 346px 346px;
   gap: 90px;
   margin-bottom: 14px;
+}
+
+.template-field--name,
+.template-field--description {
+  width: 346px;
 }
 
 .template-field {
@@ -92,9 +97,9 @@
   font-style: normal;
 }
 
-.template-field input {
-  height: 34px;
-  padding: 0 8px;
+.template-field input,
+.template-field textarea {
+  width: 100%;
   border: 1px solid #b6b6b6;
   border-radius: 4px;
   background: #ffffff;
@@ -102,15 +107,25 @@
   font-size: 16px;
   font-weight: 300;
   outline: none;
+  font-family: inherit;
 }
 
-.template-field input:focus {
+.template-field input {
+  height: 34px;
+  padding: 0 8px;
+}
+
+.template-field textarea {
+  height: 54px;
+  padding: 8px;
+  resize: none;
+  line-height: 18px;
+}
+
+.template-field input:focus,
+.template-field textarea:focus {
   border-color: #00a832;
   box-shadow: 0 0 0 3px rgba(0, 168, 50, 0.12);
-}
-
-.template-field--description input {
-  height: 54px;
 }
 
 .template-matches {
@@ -228,10 +243,6 @@
 
 .template-table {
   width: 100%;
-}
-
-.template-table {
-  width: 100%;
   --stand-column: minmax(150px, 1fr);
   --comment-column: minmax(360px, 3fr);
   --remove-column: 26px;
@@ -300,13 +311,6 @@
   background-repeat: no-repeat;
   background-position: right 4px center;
   background-size: 20px 20px;
-}
-
-.template-select:focus,
-.template-comment-input:focus,
-.template-group-comment input:focus {
-  border-color: #00a832;
-  box-shadow: 0 0 0 3px rgba(0, 168, 50, 0.12);
 }
 
 .template-select:focus,

@@ -197,10 +197,13 @@ export function CreateCompareTemplatePage() {
                 </label>
 
                 <label className="template-field template-field--description">
-          <span>
-            Описание <em>(необязательно)</em>
-          </span>
-                    <input defaultValue="Проверка соответствий параметров Corax между стендами перед релизом"/>
+  <span>
+    Описание <em>(необязательно)</em>
+  </span>
+                    <textarea
+                        defaultValue="Проверка соответствий параметров Corax между стендами перед релизом"
+                        maxLength={256}
+                    />
                 </label>
             </section>
 
