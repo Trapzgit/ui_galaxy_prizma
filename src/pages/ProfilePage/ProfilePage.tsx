@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import './ProfilePage.css';
 
 const user = {
@@ -13,19 +15,31 @@ const user = {
 };
 
 export function ProfilePage() {
+  const navigate = useNavigate();
+
+  const initials = user.fullName
+    .split(' ')
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('');
+
   return (
     <div className="profile-page">
-      <section className="profile-card">
-        <div className="profile-card__avatar" aria-hidden="true">
-          {user.fullName
-            .split(' ')
-            .slice(0, 2)
-            .map((part) => part[0])
-            .join('')}
-        </div>
+      <button
+        className="page-back-button"
+        type="button"
+        onClick={() => navigate('/services')}
+      >
+        <BackIcon />
+        Назад
+      </button>
 
-        <div className="profile-card__content">
+      <section className="profile-card">
+        <div className="profile-card__avatar">{initials}</div>
+
+        <div>
           <p className="profile-card__eyebrow">Личный кабинет</p>
+
           <h1>{user.fullName}</h1>
 
           <div className="profile-card__meta">
@@ -62,26 +76,7 @@ export function ProfilePage() {
           {user.managedKts.map((item) => (
             <article className="profile-kts__item" key={item}>
               <div className="profile-kts__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M4 6H20V18H4V6Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M8 10H16"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M8 14H13"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                <KtsIcon />
               </div>
 
               <div>
@@ -93,5 +88,56 @@ export function ProfilePage() {
         </div>
       </section>
     </div>
+  );
+}
+
+function BackIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M20 8L12 16L20 24"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function KtsIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 7H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6 12H18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M8 17H16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
