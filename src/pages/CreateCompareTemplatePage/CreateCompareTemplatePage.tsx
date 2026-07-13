@@ -201,7 +201,7 @@ export function CreateCompareTemplatePage() {
     Описание <em>(необязательно)</em>
   </span>
                     <textarea
-                        defaultValue="Проверка соответствий параметров Corax между стендами перед релизом"
+                        defaultValue="Проверка соответствий параметров..."
                         maxLength={256}
                     />
                 </label>
