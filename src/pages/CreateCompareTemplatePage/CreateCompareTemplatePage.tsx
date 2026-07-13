@@ -233,7 +233,7 @@ export function CreateCompareTemplatePage() {
 
     setTimeout(() => {
       navigate('/services');
-    }, 3000);
+    }, 10000);
   };
 
   if (isComparisonRunning) {
