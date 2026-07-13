@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-
+import { ComparisonLoadingScreen } from '../../components/ComparisonLoadingScreen/ComparisonLoadingScreen';
 import './CreateCompareTemplatePage.css';
 
 type MatchRow = {
@@ -137,9 +137,19 @@ function ServerSelect({value, options}: { value: string; options: string[] }) {
 }
 
 export function CreateCompareTemplatePage() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [groups, setGroups] = useState(initialGroups);
+  const [groups, setGroups] = useState(initialGroups);
+  const [isComparisonRunning, setIsComparisonRunning] = useState(false);
+
+  const handleRunComparison = () => {
+    setIsComparisonRunning(true);
+
+    // TODO: позже здесь будет реальный запуск сравнения через API
+    setTimeout(() => {
+      navigate('/services');
+    }, 10000);
+  };
 
     const toggleGroup = (groupId: string) => {
         setGroups((currentGroups) =>
@@ -148,7 +158,14 @@ export function CreateCompareTemplatePage() {
             )
         );
     };
-
+    if (isComparisonRunning) {
+  return (
+    <ComparisonLoadingScreen
+      title="Запускаем сравнение"
+      subtitle="Prizma анализирует параметры, сопоставляет стенды и подготавливает отчет сравнения."
+    />
+  );
+}
     return (
         <div className="template-page">
             <div className="template-breadcrumbs">
@@ -308,7 +325,11 @@ export function CreateCompareTemplatePage() {
                         Сохранить шаблон
                     </button>
 
-                    <button className="template-primary-button" type="button">
+                    <button
+                        className="template-primary-button"
+                        type="button"
+                        onClick={handleRunComparison}
+                    >
                         Запустить сравнение
                     </button>
                 </div>

@@ -433,3 +433,59 @@
 .template-add-match:hover {
   filter: brightness(0.98);
 }
+
+.template-page--loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.template-loading-card {
+  width: 420px;
+  padding: 40px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow:
+    0 8px 15px rgba(31, 42, 61, 0.12),
+    0 2px 8px rgba(31, 42, 61, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.template-loading-spinner {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 24px;
+  border: 5px solid #dfe7f2;
+  border-top-color: #00a832;
+  border-radius: 50%;
+  animation: templateSpinnerRotate 0.9s linear infinite;
+}
+
+.template-loading-card h1 {
+  margin: 0;
+  color: #13213a;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.template-loading-card p {
+  margin: 14px 0 0;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@keyframes templateSpinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
