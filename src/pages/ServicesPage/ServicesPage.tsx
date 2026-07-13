@@ -1,4 +1,5 @@
 import { ReactNode, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './ServicesPage.css';
 
@@ -310,6 +311,8 @@ function EmptyReports() {
 }
 
 export function ServicesPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="services-page">
       <header className="services-page__header">
@@ -335,6 +338,11 @@ export function ServicesPage() {
                   : 'compare-button compare-button--secondary'
               }
               type="button"
+              onClick={() => {
+                if (template.variant === 'primary') {
+                  navigate('/compare-templates/new');
+                }
+              }}
             >
               {template.variant === 'primary' ? <CompareIcon /> : <PulseIcon />}
               {template.title}

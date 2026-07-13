@@ -8,7 +8,7 @@ import { ServiceDetailsPage } from '../pages/ServiceDetailsPage/ServiceDetailsPa
 import { ServicesPage } from '../pages/ServicesPage/ServicesPage';
 import { AboutPage } from '../pages/AboutPage/AboutPage';
 import { ProfilePage } from '../pages/ProfilePage/ProfilePage';
-
+import { CreateCompareTemplatePage } from '../pages/CreateCompareTemplatePage/CreateCompareTemplatePage';
 
 
 const router = createBrowserRouter([
@@ -46,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <ProfilePage />,
+      },
+      {
+        path: '/compare-templates/new',
+        element: <CreateCompareTemplatePage />,
       },
     ],
   },
